@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+# Torch CPU-only is ideal for deployment size, but standard torch works too.
+# For Docker size optimization we often recommend --extra-index-url https://download.pytorch.org/whl/cpu in pip command,
+# but for simplicity we list torch here.
+torch
+pandas
+pydantic
+python-multipart
+requests

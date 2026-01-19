@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    image: moonsoopark/mlrec-backend:latest
+    ports:
+      - "8001:8000" # Verify on adjacent port to avoid conflict with running dev backend
+    restart: always
+
+  frontend:
+    image: moonsoopark/mlrec-frontend:latest
+    ports:
+      - "3001:3000" # Verify on adjacent port
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8001
+      # Note: In production EC2, this would be EC2 Public IP or load balancer
+      # For verification, localhost works since we map backend to host port 8001
+    env_file:
+      - ./frontend/.env.local
+    restart: always
+    depends_on:
+      - backend

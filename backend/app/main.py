@@ -18,9 +18,14 @@ app.add_middleware(
 )
 
 # Configuration
-# Ideally these should be env vars
-# Assuming running from 'backend' directory or project root
-PROJECT_ROOT = "/Users/moonsoo/Desktop/MOON/공부/projects/MLRec"
+# Configuration
+# Dynamic Project Root: Go up two levels from this file (backend/app/main.py -> backend/app -> backend -> root)
+# Actually, this file is in backend/app/main.py. 
+# Depending on how we run it.
+# If running 'uvicorn backend.app.main:app' from root:
+# os.getcwd() is usually root.
+PROJECT_ROOT = os.getcwd()
+
 # Lightweight data dir
 DATA_DIR = os.path.join(PROJECT_ROOT, "backend/app/data")
 # Decoupled Mode: Use the same data dir for metadata

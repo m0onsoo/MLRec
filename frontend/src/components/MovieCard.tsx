@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Plus } from 'lucide-react';
-// types.ts가 없다면 이 부분은 본인의 Movie 타입 정의 경로에 맞게 수정하세요.
-// interface Movie { tmdbId: number; title: string; genres: string; }
-
-// Movie 타입 정의 (필요 시 수정/사용)
-interface Movie {
-    tmdbId?: number;
-    title: string;
-    genres: string;
-    // 필요한 다른 필드들...
-}
+import { Movie } from '@/lib/types';
 
 interface MovieCardProps {
     movie: Movie;
